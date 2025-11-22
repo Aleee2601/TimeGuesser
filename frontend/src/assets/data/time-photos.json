@@ -1,0 +1,22 @@
+[
+    {
+        "id": "photo_001",
+        "imageUrl": "assets/images/time-photos/photo_001.jpg",
+        "year": 1963,
+        "lat": 38.9072,
+        "lng": -77.0369,
+        "country": "United States",
+        "city": "Washington, D.C.",
+        "description": "Large civil rights march gathered near the Lincoln Memorial."
+    },
+    {
+        "id": "photo_002",
+        "imageUrl": "assets/images/time-photos/photo_002.jpg",
+        "year": 1989,
+        "lat": 52.52,
+        "lng": 13.405,
+        "country": "Germany",
+        "city": "Berlin",
+        "description": "Crowds gathered at the Berlin Wall during its fall."
+    }
+]
