@@ -1,0 +1,20 @@
+<div class="settings-container">
+  <h2>Choose Your Mode</h2>
+  
+  <div class="cards-wrapper">
+    <a class="card relaxed" [routerLink]="['/game']" [queryParams]="{ mode: 'relaxed' }">
+      <div class="icon">☕</div>
+      <h3>Relaxed</h3>
+      <p>No timer. Chill vibes.</p>
+    </a>
+
+    <a class="card timed" [routerLink]="['/game']" [queryParams]="{ mode: 'timed' }">
+      <div class="icon">⏱️</div>
+      <h3>Speed Run</h3>
+      <p>60s Time Limit!</p>
+    </a>
+  </div>
+  
+  <br>
+  <a routerLink="/" class="back-link">← Back to Home</a>
+</div>

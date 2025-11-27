@@ -1,0 +1,89 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Make the links look like cards */
+.card {
+  display: flex;       /* key for layout */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  background: white;
+  width: 220px;
+  padding: 40px;
+  border-radius: 20px;
+  text-decoration: none; /* Removes link underline */
+  color: #333;
+  
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 2px solid transparent; /* Prevents layout shift on hover */
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+}
+
+.card p {
+  color: #666;
+  margin: 0;
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* Relaxed Card Styles */
+.card.relaxed:hover {
+  transform: translateY(-8px);
+  border-color: #4CAF50;
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+}
+.card.relaxed:active {
+  transform: scale(0.98);
+}
+
+/* Timed Card Styles */
+.card.timed:hover {
+  transform: translateY(-8px);
+  border-color: #ff4081;
+  box-shadow: 0 20px 40px rgba(255, 64, 129, 0.2);
+}
+.card.timed:active {
+  transform: scale(0.98);
+}
+
+.back-link {
+  margin-top: 50px;
+  color: #888;
+  text-decoration: none;
+  font-weight: bold;
+}
+.back-link:hover {
+  color: #333;
+}

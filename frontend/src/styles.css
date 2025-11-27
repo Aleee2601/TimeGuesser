@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import a nice font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #3f51b5;
+  --accent-color: #ff4081;
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.1s ease, background-color 0.2s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Common container for centering content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}

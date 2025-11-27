@@ -1,0 +1,109 @@
+.game-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-header {
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.game-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split screen 50/50 */
+  height: calc(100vh - 60px);     /* Remaining height */
+  overflow: hidden;
+}
+
+/* Left Side: Photo */
+.photo-section {
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.hint {
+  color: #aaa;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Right Side: Interactions */
+.interaction-section {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.map-container {
+  flex: 1; /* Takes up all available space */
+  background-color: #e0e0e0;
+  position: relative;
+  /* This is crucial for Leaflet later */
+  z-index: 1; 
+}
+
+.map-placeholder {
+  text-align: center;
+  padding-top: 40%;
+  color: #888;
+}
+
+.controls {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group input {
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.guess-btn {
+  background-color: #3f51b5;
+  color: white;
+  width: 100%;
+  max-width: 200px;
+}
+
+.guess-btn:hover {
+  background-color: #303f9f;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .game-grid {
+    grid-template-columns: 1fr; /* Stack vertically */
+    height: auto;
+    overflow-y: auto;
+  }
+  
+  .map-container {
+    height: 300px; /* Fixed height for map on mobile */
+  }
+}

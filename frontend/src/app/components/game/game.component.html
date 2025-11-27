@@ -1,0 +1,35 @@
+<div class="game-wrapper" *ngIf="currentPhoto">
+  
+  <header class="game-header">
+    <div class="stat">Round: <strong>{{ round }} / {{ maxRounds }}</strong></div>
+    <div class="stat">Score: <strong>{{ score }}</strong></div>
+    <div class="stat" *ngIf="gameMode === 'timed'">Time: <strong>00:45</strong></div>
+  </header>
+
+  <main class="game-grid">
+    
+    <div class="photo-section">
+      <div class="image-container">
+        <img [src]="currentPhoto.imageUrl" alt="Guess the location and year">
+      </div>
+      <p class="hint" *ngIf="currentPhoto.description">Hint: {{ currentPhoto.description }}</p>
+    </div>
+
+    <div class="interaction-section">
+      
+      <div id="map" class="map-container">
+        <p class="map-placeholder">Map Loading...</p>
+      </div>
+
+      <div class="controls">
+        <div class="input-group">
+          <label>Year:</label>
+          <input type="number" placeholder="YYYY" [(ngModel)]="guessedYear">
+        </div>
+        
+        <button class="guess-btn" (click)="makeGuess()">SUBMIT GUESS</button>
+      </div>
+    </div>
+
+  </main>
+</div>
