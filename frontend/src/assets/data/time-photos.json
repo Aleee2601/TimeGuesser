@@ -1,22 +1,138 @@
 [
     {
-        "id": "photo_001",
-        "imageUrl": "assets/images/time-photos/photo_001.jpg",
-        "year": 1963,
-        "lat": 38.9072,
-        "lng": -77.0369,
-        "country": "United States",
-        "city": "Washington, D.C.",
-        "description": "Large civil rights march gathered near the Lincoln Memorial."
+        "id":  "photo_001",
+        "imageUrl":  "assets/images/time-photos/photo_001.jpg",
+        "year":  1989,
+        "lat":  52.52,
+        "lng":  13.405,
+        "country":  "Germany",
+        "city":  "Berlin",
+        "description":  "Crowds gathered at the Berlin Wall during its fall.",
+        "tags":  [
+                     "politics",
+                     "revolution",
+                     "europe"
+                 ],
+        "difficulty":  "easy",
+        "source":  "Public Domain"
     },
     {
-        "id": "photo_002",
-        "imageUrl": "assets/images/time-photos/photo_002.jpg",
-        "year": 1989,
-        "lat": 52.52,
-        "lng": 13.405,
-        "country": "Germany",
-        "city": "Berlin",
-        "description": "Crowds gathered at the Berlin Wall during its fall."
+        "id":  "photo_002",
+        "imageUrl":  "assets/images/time-photos/photo_002.jpg",
+        "year":  1969,
+        "lat":  28.5728,
+        "lng":  -80.6490,
+        "country":  "United States",
+        "city":  "Cape Kennedy",
+        "description":  "Historic Apollo 11 Moon landing mission.",
+        "tags":  [
+                     "space",
+                     "technology",
+                     "historic"
+                 ],
+        "difficulty":  "easy",
+        "source":  "NASA"
+    },
+    {
+        "id":  "photo_003",
+        "imageUrl":  "assets/images/time-photos/photo_003.jpg",
+        "year":  2001,
+        "lat":  40.7128,
+        "lng":  -74.0060,
+        "country":  "United States",
+        "city":  "New York",
+        "description":  "Twin towers during tragic September 11th attacks.",
+        "tags":  [
+                     "disaster",
+                     "terrorism",
+                     "modern"
+                 ],
+        "difficulty":  "easy",
+        "source":  "Public Domain"
+    },
+    {
+        "id":  "photo_004",
+        "imageUrl":  "assets/images/time-photos/photo_004.jpg",
+        "year":  1963,
+        "lat":  38.9072,
+        "lng":  -77.0369,
+        "country":  "United States",
+        "city":  "Washington, D.C.",
+        "description":  "Martin Luther King Jr. March on Washington.",
+        "tags":  [
+                     "politics",
+                     "civil-rights",
+                     "protest"
+                 ],
+        "difficulty":  "medium",
+        "source":  "Public Domain"
+    },
+    {
+        "id":  "photo_005",
+        "imageUrl":  "assets/images/time-photos/photo_005.jpg",
+        "year":  1912,
+        "lat":  41.7258,
+        "lng":  -49.9469,
+        "country":  "North Atlantic Ocean",
+        "city":  "At Sea",
+        "description":  "RMS Titanic on its maiden voyage.",
+        "tags":  [
+                     "maritime",
+                     "disaster",
+                     "historic"
+                 ],
+        "difficulty":  "medium",
+        "source":  "Public Domain"
+    },
+    {
+        "id":  "photo_006",
+        "imageUrl":  "assets/images/time-photos/photo_006.jpg",
+        "year":  1986,
+        "lat":  51.3890,
+        "lng":  30.0990,
+        "country":  "Ukraine",
+        "city":  "Pripyat",
+        "description":  "Chernobyl nuclear power plant disaster.",
+        "tags":  [
+                     "disaster",
+                     "nuclear",
+                     "europe"
+                 ],
+        "difficulty":  "medium",
+        "source":  "Public Domain"
+    },
+    {
+        "id":  "photo_007",
+        "imageUrl":  "assets/images/time-photos/photo_007.jpg",
+        "year":  1906,
+        "lat":  37.7749,
+        "lng":  -122.4194,
+        "country":  "United States",
+        "city":  "San Francisco",
+        "description":  "City devastated by massive earthquake and fires.",
+        "tags":  [
+                     "disaster",
+                     "earthquake",
+                     "historic"
+                 ],
+        "difficulty":  "hard",
+        "source":  "Public Domain"
+    },
+    {
+        "id":  "photo_008",
+        "imageUrl":  "assets/images/time-photos/photo_008.jpg",
+        "year":  1865,
+        "lat":  38.8977,
+        "lng":  -77.0365,
+        "country":  "United States",
+        "city":  "Washington, D.C.",
+        "description":  "End of American Civil War, Lincoln assassination period.",
+        "tags":  [
+                     "war",
+                     "politics",
+                     "historic"
+                 ],
+        "difficulty":  "hard",
+        "source":  "Public Domain"
     }
 ]
