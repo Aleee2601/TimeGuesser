@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { GameState } from '../../models/game-state.model';
 import { GameStateService } from '../../services/game-state.service';
@@ -10,7 +10,7 @@ import { DatasetService } from '../../services/dataset.service';
 @Component({
   selector: 'app-game-shell',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './game-shell.component.html',
   styleUrls: ['./game-shell.component.css']
 })
@@ -19,13 +19,14 @@ export class GameShellComponent implements OnInit, OnDestroy {
   guessedYear: number | null = null;
   photoLoadFailed = false;
   dataSource: 'primary' | 'fallback' = 'primary';
+  hintVisible = false;
   private destroy$ = new Subject<void>();
 
   constructor(
     private gameStateService: GameStateService,
     private datasetService: DatasetService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.state$ = this.gameStateService.state$;
@@ -49,6 +50,10 @@ export class GameShellComponent implements OnInit, OnDestroy {
       });
   }
 
+  toggleHint(): void {
+    this.hintVisible = !this.hintVisible;
+  }
+
   onSubmitGuess(): void {
     if (this.guessedYear === null) {
       return;
@@ -59,11 +64,13 @@ export class GameShellComponent implements OnInit, OnDestroy {
 
   onNextRound(): void {
     this.guessedYear = null;
+    this.hintVisible = false;
     this.gameStateService.nextRound();
   }
 
   onRestart(state: GameState): void {
     this.guessedYear = null;
+    this.hintVisible = false;
     this.gameStateService.startGame(state.gameMode, state.maxRounds);
   }
 

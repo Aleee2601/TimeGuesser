@@ -1,20 +1,32 @@
 <div class="settings-container">
-  <h2>Choose Your Mode</h2>
-  
-  <div class="cards-wrapper">
-    <a class="card relaxed" [routerLink]="['/game']" [queryParams]="{ mode: 'relaxed' }">
-      <div class="icon">☕</div>
-      <h3>Relaxed</h3>
-      <p>No timer. Chill vibes.</p>
+  <header>
+    <h2>Select Game Mode</h2>
+    <p class="subtitle">How do you want to play today?</p>
+  </header>
+
+  <div class="cards-grid">
+    <a class="mode-card relaxed" [routerLink]="['/game']" [queryParams]="{ mode: 'relaxed' }">
+      <div class="card-icon">☕</div>
+      <div class="card-content">
+        <h3>Relaxed Mode</h3>
+        <p>No time limit. Take your time to explore history.</p>
+      </div>
+      <div class="card-arrow">→</div>
     </a>
 
-    <a class="card timed" [routerLink]="['/game']" [queryParams]="{ mode: 'timed' }">
-      <div class="icon">⏱️</div>
-      <h3>Speed Run</h3>
-      <p>60s Time Limit!</p>
+    <a class="mode-card timed" [routerLink]="['/game']" [queryParams]="{ mode: 'timed' }">
+      <div class="card-icon">⚡</div>
+      <div class="card-content">
+        <h3>Speed Run</h3>
+        <p>60 seconds to guess as many as you can!</p>
+      </div>
+      <div class="card-arrow">→</div>
     </a>
   </div>
-  
-  <br>
-  <a routerLink="/" class="back-link">← Back to Home</a>
+
+  <div class="footer-actions">
+    <a routerLink="/" class="back-link">
+      <span class="arrow">←</span> Back to Home
+    </a>
+  </div>
 </div>

@@ -1,75 +1,88 @@
-<div *ngIf="state$ | async as state" class="game-wrapper">
-  <header class="game-header">
-    <div class="stat">Round: <strong>{{ state.round }} / {{ state.maxRounds }}</strong></div>
-    <div class="stat">Score: <strong>{{ state.score }}</strong></div>
-    <div class="stat" *ngIf="state.gameMode === 'timed'">Time: <strong>00:45</strong></div>
-  </header>
+<div class="game-container-split" *ngIf="state$ | async as state">
 
-  <div class="feedback" *ngIf="dataSource === 'fallback' || photoLoadFailed">
-    <span *ngIf="dataSource === 'fallback'">Dataset indisponibil - folosim setul implicit local.</span>
-    <span *ngIf="photoLoadFailed"> Imaginea nu s-a incarcat, afisam placeholder.</span>
+  <!-- LEFT COLUMN: PHOTO -->
+  <div class="split-col photo-col">
+    <!-- Header Stats (Overlay or Top) -->
+    <header class="game-header-simple">
+      <div class="stat">Round: <strong>{{ state.round }} / {{ state.maxRounds }}</strong></div>
+      <div class="stat">Score: <strong>{{ state.score }}</strong></div>
+      <div class="stat" *ngIf="state.gameMode === 'timed'">Time: <strong>00:45</strong></div>
+    </header>
+
+    <div class="photo-frame">
+      <img *ngIf="!photoLoadFailed; else fallbackImage" [src]="state.currentPhoto?.imageUrl" class="game-photo"
+        alt="Guess location and year" (error)="onImageError()" />
+      <ng-template #fallbackImage>
+        <div class="img-fallback">
+          <img src="assets/images/placeholder.jpg" alt="No Image" style="display:none"> <!-- Optional logic -->
+          <div class="icon">🖼️</div>
+          <p>Image Unavailable</p>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Hint Section (Below Photo) -->
+    <div class="hint-section-below">
+      <button *ngIf="!hintVisible" class="btn-hint-flat" (click)="toggleHint()">Show Hint</button>
+      <div class="hint-box-flat" *ngIf="hintVisible && state.currentPhoto?.description">
+        {{ state.currentPhoto?.description }}
+      </div>
+    </div>
   </div>
 
-  <main class="game-grid" *ngIf="state.currentPhoto; else loading">
-    <div class="photo-section">
-      <div class="image-container">
-        <img
-          *ngIf="!photoLoadFailed; else fallbackImage"
-          [src]="state.currentPhoto.imageUrl"
-          alt="Guess the location and year"
-          (error)="onImageError()"
-        />
-        <ng-template #fallbackImage>
-          <div class="img-fallback">
-            <div class="icon">[img]</div>
-            <p>Imagine indisponibila</p>
-          </div>
-        </ng-template>
-      </div>
-      <p class="hint" *ngIf="state.currentPhoto.description">Hint: {{ state.currentPhoto.description }}</p>
-    </div>
+  <!-- RIGHT COLUMN: INTERACTION -->
+  <div class="split-col interaction-col">
 
-    <div class="interaction-section">
-      <div id="map" class="map-container">
-        <p class="map-placeholder">Map Loading...</p>
-      </div>
-
-      <div class="controls">
-        <div class="input-group">
-          <label>Year:</label>
-          <input
-            type="number"
-            placeholder="YYYY"
-            [(ngModel)]="guessedYear"
-            [disabled]="state.status !== 'in-progress'"
-          />
-        </div>
-
-        <button class="guess-btn" (click)="onSubmitGuess()" [disabled]="guessedYear === null || state.status !== 'in-progress'">
-          SUBMIT GUESS
-        </button>
-
-        <button class="secondary-btn" type="button" (click)="onNextRound()" [disabled]="state.status !== 'in-progress'">
-          Next Round
-        </button>
-
-        <div class="result" *ngIf="state.lastResult">
-          <p>
-            You guessed <strong>{{ state.lastResult.guessedYear }}</strong> and the answer was
-            <strong>{{ state.lastResult.actualYear }}</strong>.
-          </p>
-          <p>Difference: {{ state.lastResult.yearDifference }} years | Points: +{{ state.lastResult.pointsAwarded }}</p>
-        </div>
+    <!-- Map Section (Top of Right Col) -->
+    <div class="map-section">
+      <div class="map-placeholder-box">
+        <div class="map-icon">🗺️</div>
+        <p>Map Area</p>
+        <small>(Logic Pending)</small>
       </div>
     </div>
-  </main>
+
+    <!-- Controls Section (Bottom of Right Col) -->
+    <div class="controls-section">
+      <label class="section-label">GUESS THE YEAR</label>
+
+      <div class="slider-row">
+        <span>1900</span>
+        <input type="number" class="year-input-large" placeholder="YYYY" [(ngModel)]="guessedYear"
+          [disabled]="state.status !== 'in-progress'" />
+        <span>2024</span>
+      </div>
+
+      <button class="btn-submit" (click)="onSubmitGuess()"
+        [disabled]="guessedYear === null || state.status !== 'in-progress'">
+        SUBMIT GUESS
+      </button>
+
+      <div class="result-box" *ngIf="state.lastResult">
+        <h3>Round Result</h3>
+        <p>You guessed <strong>{{ state.lastResult.guessedYear }}</strong></p>
+        <p>Actual: <strong>{{ state.lastResult.actualYear }}</strong></p>
+        <div class="points">+{{ state.lastResult.pointsAwarded }} pts</div>
+
+        <button class="btn-next" (click)="onNextRound()">Next Round →</button>
+      </div>
+    </div>
+  </div>
 
   <ng-template #loading>
-    <div class="loading">Loading round...</div>
+    <div class="loading-overlay">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
   </ng-template>
 
-  <div class="game-footer" *ngIf="state.status === 'finished'">
-    <p>Game finished! Final score: <strong>{{ state.score }}</strong></p>
-    <button class="guess-btn" type="button" (click)="onRestart(state)">Play again</button>
+  <!-- Game Over -->
+  <div class="game-over-overlay" *ngIf="state.status === 'finished'">
+    <div class="game-over-card">
+      <h2>Game Complete!</h2>
+      <div class="final-score">{{ state.score }}</div>
+      <button class="btn-submit" (click)="onRestart(state)">Play Again</button>
+      <a routerLink="/" class="btn-link">Back to Menu</a>
+    </div>
   </div>
 </div>

@@ -1,39 +1,79 @@
-/* Import a nice font from Google */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --primary-color: #3f51b5;
-  --accent-color: #ff4081;
-  --bg-color: #f4f4f9;
-  --text-color: #333;
+  --primary: #6366f1;
+  /* Indigo */
+  --primary-dark: #4338ca;
+  --accent: #f43f5e;
+  /* Rose */
+  --bg-dark: #0f172a;
+  /* Slate 900 */
+  --bg-card: #1e293b;
+  /* Slate 800 */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --font-main: 'Outfit', sans-serif;
+  --radius: 16px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  box-sizing: border-box;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
   cursor: pointer;
   border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: transform 0.1s ease, background-color 0.2s;
+  font-family: inherit;
 }
 
-button:active {
-  transform: scale(0.98);
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Common container for centering content */
+/* Global Utility Classes */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  padding: 2rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgb(99 102 241 / 0.4);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgb(99 102 241 / 0.5);
+}
+
+.title-gradient {
+  background: linear-gradient(to right, #818cf8, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

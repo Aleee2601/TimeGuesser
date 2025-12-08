@@ -24,7 +24,7 @@ export class GameStateService {
     private datasetService: DatasetService,
     private scoringService: ScoringService,
     private storageService: StorageService
-  ) {}
+  ) { }
 
   getSnapshot(): GameState {
     return this.stateSubject.value;

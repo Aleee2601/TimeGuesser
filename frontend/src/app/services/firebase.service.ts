@@ -11,7 +11,7 @@ import {
     limit,
     Timestamp
 } from 'firebase/firestore';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.example';
 
 export interface LeaderboardEntry {
     playerName: string;
