@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, shareReplay } from 'rxjs';
+import { Observable, BehaviorSubject, catchError, map, of, shareReplay } from 'rxjs';
 import { TimePhoto } from '../models/time-photo.model';
 
 @Injectable({
@@ -10,6 +10,47 @@ export class DatasetService {
 
   private dataUrl = 'assets/data/time-photos.json';
   private cache$?: Observable<TimePhoto[]>; // Cache pentru performanta
+  private sourceSubject = new BehaviorSubject<'primary' | 'fallback'>('primary');
+  readonly dataSource$ = this.sourceSubject.asObservable();
+
+  private readonly fallbackPhotos: TimePhoto[] = [
+    {
+      id: 'fallback-1',
+      imageUrl: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
+      year: 1990,
+      lat: 40.758,
+      lng: -73.9855,
+      country: 'USA',
+      city: 'New York',
+      description: 'Times Square lights up in the 90s.',
+      tags: ['city', 'culture'],
+      difficulty: 'easy'
+    },
+    {
+      id: 'fallback-2',
+      imageUrl: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80',
+      year: 1965,
+      lat: 48.8566,
+      lng: 2.3522,
+      country: 'France',
+      city: 'Paris',
+      description: 'A quiet Parisian street scene.',
+      tags: ['city'],
+      difficulty: 'medium'
+    },
+    {
+      id: 'fallback-3',
+      imageUrl: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
+      year: 1880,
+      lat: 51.5072,
+      lng: -0.1276,
+      country: 'United Kingdom',
+      city: 'London',
+      description: 'Vintage London bridge view.',
+      tags: ['history', 'bridge'],
+      difficulty: 'hard'
+    }
+  ];
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +60,20 @@ export class DatasetService {
   getAllPhotos(): Observable<TimePhoto[]> {
     if (!this.cache$) {
       this.cache$ = this.http.get<TimePhoto[]>(this.dataUrl).pipe(
+        catchError(error => {
+          console.warn('Dataset unavailable, using fallback set.', error);
+          this.sourceSubject.next('fallback');
+          return of(this.fallbackPhotos);
+        }),
+        map(photos => {
+          if (!Array.isArray(photos) || photos.length === 0) {
+            console.warn('Dataset missing or empty. Switching to fallback set.');
+            this.sourceSubject.next('fallback');
+            return this.fallbackPhotos;
+          }
+          this.sourceSubject.next('primary');
+          return photos;
+        }),
         shareReplay(1) // Cache rezultatul
       );
     }

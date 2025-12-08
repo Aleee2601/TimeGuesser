@@ -1,0 +1,88 @@
+<div class="stats-page">
+  <header class="stats-header">
+    <div>
+      <p class="eyebrow">Saved locally</p>
+      <h1>Game Stats</h1>
+      <p class="subtitle">Progress and results are stored only in this browser.</p>
+    </div>
+    <div class="header-links">
+      <a routerLink="/" class="link">Home</a>
+      <a routerLink="/game" class="primary">Play</a>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="card">
+      <p class="label">Games played</p>
+      <p class="value">{{ stats.gamesPlayed }}</p>
+    </div>
+    <div class="card">
+      <p class="label">Best score</p>
+      <p class="value">{{ stats.bestScore }}</p>
+    </div>
+    <div class="card">
+      <p class="label">Average score</p>
+      <p class="value">{{ stats.averageScore }}</p>
+    </div>
+  </section>
+
+  <section *ngIf="progress as saved; else noProgress" class="section">
+    <div class="section-title">
+      <h2>Current progress</h2>
+      <p>Last saved {{ saved.updatedAt | date: 'short' }}</p>
+    </div>
+
+    <div class="progress-card">
+      <div class="row">
+        <span>Mode</span>
+        <strong>{{ saved.state.gameMode | titlecase }}</strong>
+      </div>
+      <div class="row">
+        <span>Round</span>
+        <strong>{{ saved.state.round }} / {{ saved.state.maxRounds }}</strong>
+      </div>
+      <div class="row">
+        <span>Score</span>
+        <strong>{{ saved.state.score }}</strong>
+      </div>
+      <div class="row">
+        <span>Status</span>
+        <strong>{{ saved.state.status | titlecase }}</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Recent games</h2>
+      <p>Latest finished runs saved on this device.</p>
+    </div>
+
+    <ng-container *ngIf="stats.history.length; else emptyHistory">
+      <div class="history-list">
+        <div class="history-item" *ngFor="let item of stats.history">
+          <div class="score">{{ item.score }}</div>
+          <div class="meta">
+            <span>{{ item.rounds }} / {{ item.maxRounds }} rounds</span>
+            <span>·</span>
+            <span>{{ item.gameMode | titlecase }}</span>
+          </div>
+          <div class="time">{{ item.finishedAt | date: 'short' }}</div>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+
+  <ng-template #emptyHistory>
+    <div class="empty">Finish a game to see it appear here.</div>
+  </ng-template>
+
+  <ng-template #noProgress>
+    <section class="section">
+      <div class="section-title">
+        <h2>No active progress</h2>
+        <p>Start a game and your score will be saved after every round.</p>
+      </div>
+    </section>
+  </ng-template>
+</div>

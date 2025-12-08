@@ -5,12 +5,28 @@
     <div class="stat" *ngIf="state.gameMode === 'timed'">Time: <strong>00:45</strong></div>
   </header>
 
+  <div class="feedback" *ngIf="dataSource === 'fallback' || photoLoadFailed">
+    <span *ngIf="dataSource === 'fallback'">Dataset indisponibil - folosim setul implicit local.</span>
+    <span *ngIf="photoLoadFailed"> Imaginea nu s-a incarcat, afisam placeholder.</span>
+  </div>
+
   <main class="game-grid" *ngIf="state.currentPhoto; else loading">
     <div class="photo-section">
       <div class="image-container">
-        <img [src]="state.currentPhoto?.imageUrl" alt="Guess the location and year" />
+        <img
+          *ngIf="!photoLoadFailed; else fallbackImage"
+          [src]="state.currentPhoto.imageUrl"
+          alt="Guess the location and year"
+          (error)="onImageError()"
+        />
+        <ng-template #fallbackImage>
+          <div class="img-fallback">
+            <div class="icon">[img]</div>
+            <p>Imagine indisponibila</p>
+          </div>
+        </ng-template>
       </div>
-      <p class="hint" *ngIf="state.currentPhoto?.description">Hint: {{ state.currentPhoto?.description }}</p>
+      <p class="hint" *ngIf="state.currentPhoto.description">Hint: {{ state.currentPhoto.description }}</p>
     </div>
 
     <div class="interaction-section">
