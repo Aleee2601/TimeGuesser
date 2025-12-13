@@ -1,138 +1,291 @@
 [
     {
-        "id":  "photo_001",
-        "imageUrl":  "assets/images/time-photos/photo_001.jpg",
-        "year":  1989,
-        "lat":  52.52,
-        "lng":  13.405,
-        "country":  "Germany",
-        "city":  "Berlin",
-        "description":  "Crowds gathered at the Berlin Wall during its fall.",
-        "tags":  [
-                     "politics",
-                     "revolution",
-                     "europe"
-                 ],
-        "difficulty":  "easy",
-        "source":  "Public Domain"
+        "id": "photo_001",
+        "imageUrl": "assets/images/time-photos/photo_001.jpg",
+        "year": 1989,
+        "lat": 52.52,
+        "lng": 13.405,
+        "country": "Germany",
+        "city": "Berlin",
+        "description": "Crowds gathered at the Berlin Wall during its fall.",
+        "tags": [
+            "politics",
+            "revolution",
+            "europe"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_002",
-        "imageUrl":  "assets/images/time-photos/photo_002.jpg",
-        "year":  1969,
-        "lat":  28.5728,
-        "lng":  -80.6490,
-        "country":  "United States",
-        "city":  "Cape Kennedy",
-        "description":  "Historic Apollo 11 Moon landing mission.",
-        "tags":  [
-                     "space",
-                     "technology",
-                     "historic"
-                 ],
-        "difficulty":  "easy",
-        "source":  "NASA"
+        "id": "photo_002",
+        "imageUrl": "assets/images/time-photos/photo_002.jpg",
+        "year": 1969,
+        "lat": 28.5728,
+        "lng": -80.6490,
+        "country": "United States",
+        "city": "Cape Kennedy",
+        "description": "Historic Apollo 11 Moon landing mission.",
+        "tags": [
+            "space",
+            "technology",
+            "historic"
+        ],
+        "difficulty": "easy",
+        "source": "NASA"
     },
     {
-        "id":  "photo_003",
-        "imageUrl":  "assets/images/time-photos/photo_003.jpg",
-        "year":  2001,
-        "lat":  40.7128,
-        "lng":  -74.0060,
-        "country":  "United States",
-        "city":  "New York",
-        "description":  "Twin towers during tragic September 11th attacks.",
-        "tags":  [
-                     "disaster",
-                     "terrorism",
-                     "modern"
-                 ],
-        "difficulty":  "easy",
-        "source":  "Public Domain"
+        "id": "photo_003",
+        "imageUrl": "assets/images/time-photos/photo_003.jpg",
+        "year": 2001,
+        "lat": 40.7128,
+        "lng": -74.0060,
+        "country": "United States",
+        "city": "New York",
+        "description": "Twin towers during tragic September 11th attacks.",
+        "tags": [
+            "disaster",
+            "terrorism",
+            "modern"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_004",
-        "imageUrl":  "assets/images/time-photos/photo_004.jpg",
-        "year":  1963,
-        "lat":  38.9072,
-        "lng":  -77.0369,
-        "country":  "United States",
-        "city":  "Washington, D.C.",
-        "description":  "Martin Luther King Jr. March on Washington.",
-        "tags":  [
-                     "politics",
-                     "civil-rights",
-                     "protest"
-                 ],
-        "difficulty":  "medium",
-        "source":  "Public Domain"
+        "id": "photo_004",
+        "imageUrl": "assets/images/time-photos/photo_004.jpg",
+        "year": 1963,
+        "lat": 38.9072,
+        "lng": -77.0369,
+        "country": "United States",
+        "city": "Washington, D.C.",
+        "description": "Martin Luther King Jr. March on Washington.",
+        "tags": [
+            "politics",
+            "civil-rights",
+            "protest"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_005",
-        "imageUrl":  "assets/images/time-photos/photo_005.jpg",
-        "year":  1912,
-        "lat":  41.7258,
-        "lng":  -49.9469,
-        "country":  "North Atlantic Ocean",
-        "city":  "At Sea",
-        "description":  "RMS Titanic on its maiden voyage.",
-        "tags":  [
-                     "maritime",
-                     "disaster",
-                     "historic"
-                 ],
-        "difficulty":  "medium",
-        "source":  "Public Domain"
+        "id": "photo_005",
+        "imageUrl": "assets/images/time-photos/photo_005.jpg",
+        "year": 1912,
+        "lat": 41.7258,
+        "lng": -49.9469,
+        "country": "North Atlantic Ocean",
+        "city": "At Sea",
+        "description": "RMS Titanic on its maiden voyage.",
+        "tags": [
+            "maritime",
+            "disaster",
+            "historic"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_006",
-        "imageUrl":  "assets/images/time-photos/photo_006.jpg",
-        "year":  1986,
-        "lat":  51.3890,
-        "lng":  30.0990,
-        "country":  "Ukraine",
-        "city":  "Pripyat",
-        "description":  "Chernobyl nuclear power plant disaster.",
-        "tags":  [
-                     "disaster",
-                     "nuclear",
-                     "europe"
-                 ],
-        "difficulty":  "medium",
-        "source":  "Public Domain"
+        "id": "photo_006",
+        "imageUrl": "assets/images/time-photos/photo_006.jpg",
+        "year": 1986,
+        "lat": 51.3890,
+        "lng": 30.0990,
+        "country": "Ukraine",
+        "city": "Pripyat",
+        "description": "Chernobyl nuclear power plant disaster.",
+        "tags": [
+            "disaster",
+            "nuclear",
+            "europe"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_007",
-        "imageUrl":  "assets/images/time-photos/photo_007.jpg",
-        "year":  1906,
-        "lat":  37.7749,
-        "lng":  -122.4194,
-        "country":  "United States",
-        "city":  "San Francisco",
-        "description":  "City devastated by massive earthquake and fires.",
-        "tags":  [
-                     "disaster",
-                     "earthquake",
-                     "historic"
-                 ],
-        "difficulty":  "hard",
-        "source":  "Public Domain"
+        "id": "photo_007",
+        "imageUrl": "assets/images/time-photos/photo_007.jpg",
+        "year": 1906,
+        "lat": 37.7749,
+        "lng": -122.4194,
+        "country": "United States",
+        "city": "San Francisco",
+        "description": "City devastated by massive earthquake and fires.",
+        "tags": [
+            "disaster",
+            "earthquake",
+            "historic"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
     },
     {
-        "id":  "photo_008",
-        "imageUrl":  "assets/images/time-photos/photo_008.jpg",
-        "year":  1865,
-        "lat":  38.8977,
-        "lng":  -77.0365,
-        "country":  "United States",
-        "city":  "Washington, D.C.",
-        "description":  "End of American Civil War, Lincoln assassination period.",
-        "tags":  [
-                     "war",
-                     "politics",
-                     "historic"
-                 ],
-        "difficulty":  "hard",
-        "source":  "Public Domain"
+        "id": "photo_008",
+        "imageUrl": "assets/images/time-photos/photo_008.jpg",
+        "year": 1865,
+        "lat": 38.8977,
+        "lng": -77.0365,
+        "country": "United States",
+        "city": "Washington, D.C.",
+        "description": "End of American Civil War, Lincoln assassination period.",
+        "tags": [
+            "war",
+            "politics",
+            "historic"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_009",
+        "imageUrl": "assets/images/time-photos/photo_009.jpg",
+        "year": 1995,
+        "lat": 40.6892,
+        "lng": -74.0445,
+        "country": "United States",
+        "city": "New York",
+        "description": "Modern view of the Statue of Liberty with visitors.",
+        "tags": [
+            "landmark",
+            "tourism",
+            "modern"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_010",
+        "imageUrl": "assets/images/time-photos/photo_010.jpg",
+        "year": 2000,
+        "lat": 41.8902,
+        "lng": 12.4922,
+        "country": "Italy",
+        "city": "Rome",
+        "description": "Tourists visiting the Colosseum in Rome.",
+        "tags": [
+            "landmark",
+            "architecture",
+            "tourism"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_011",
+        "imageUrl": "assets/images/time-photos/photo_011.jpg",
+        "year": 2005,
+        "lat": 37.8199,
+        "lng": -122.4783,
+        "country": "United States",
+        "city": "San Francisco",
+        "description": "Golden Gate Bridge partially covered by fog.",
+        "tags": [
+            "landmark",
+            "architecture",
+            "tourism"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_012",
+        "imageUrl": "assets/images/time-photos/photo_012.jpg",
+        "year": 1992,
+        "lat": 41.3851,
+        "lng": 2.1734,
+        "country": "Spain",
+        "city": "Barcelona",
+        "description": "Opening ceremony of the 1992 Summer Olympic Games in Barcelona.",
+        "tags": [
+            "sports",
+            "olympics",
+            "europe"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_013",
+        "imageUrl": "assets/images/time-photos/photo_013.jpg",
+        "year": 2003,
+        "lat": 39.9042,
+        "lng": 116.4074,
+        "country": "China",
+        "city": "Beijing",
+        "description": "Beijing skyline during rapid urban expansion in the early 2000s.",
+        "tags": [
+            "city",
+            "urban",
+            "asia"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_014",
+        "imageUrl": "assets/images/time-photos/photo_014.jpg",
+        "year": 2010,
+        "lat": 25.2048,
+        "lng": 55.2708,
+        "country": "United Arab Emirates",
+        "city": "Dubai",
+        "description": "Dubai skyline during rapid growth around the Burj Khalifa.",
+        "tags": [
+            "city",
+            "modern",
+            "architecture"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_015",
+        "imageUrl": "assets/images/time-photos/photo_015.jpg",
+        "year": 2015,
+        "lat": 37.9838,
+        "lng": 23.7275,
+        "country": "Greece",
+        "city": "Athens",
+        "description": "Refugees arriving during the European migrant crisis.",
+        "tags": [
+            "migration",
+            "humanitarian",
+            "europe"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_016",
+        "imageUrl": "assets/images/time-photos/photo_016.jpg",
+        "year": 2012,
+        "lat": 37.4211,
+        "lng": 141.0328,
+        "country": "Japan",
+        "city": "Fukushima",
+        "description": "Abandoned area near the Fukushima nuclear exclusion zone.",
+        "tags": [
+            "disaster",
+            "nuclear",
+            "asia"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_017",
+        "imageUrl": "assets/images/time-photos/photo_017.jpg",
+        "year": 2020,
+        "lat": 45.4642,
+        "lng": 9.19,
+        "country": "Italy",
+        "city": "Milan",
+        "description": "Empty city streets during COVID-19 lockdown.",
+        "tags": [
+            "pandemic",
+            "lockdown",
+            "modern"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
     }
 ]
