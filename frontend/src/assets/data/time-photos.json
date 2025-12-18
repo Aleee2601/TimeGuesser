@@ -160,7 +160,7 @@
         "lng": 12.4922,
         "country": "Italy",
         "city": "Rome",
-        "description": "Tourists visiting the Colosseum in Rome.",
+        "description": "Tourists visiting the Colosseum.",
         "tags": [
             "landmark",
             "architecture",
@@ -194,7 +194,7 @@
         "lng": 2.1734,
         "country": "Spain",
         "city": "Barcelona",
-        "description": "Opening ceremony of the 1992 Summer Olympic Games in Barcelona.",
+        "description": "Opening ceremony of  Summer Olympic Games in Barcelona.",
         "tags": [
             "sports",
             "olympics",
@@ -283,6 +283,159 @@
         "tags": [
             "pandemic",
             "lockdown",
+            "modern"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_018",
+        "imageUrl": "assets/images/time-photos/photo_018.jpg",
+        "year": 2025,
+        "lat": -22.9519,
+        "lng": -43.2105,
+        "country": "Brazil",
+        "city": "Rio de Janeiro",
+        "description": "Massive crowd gathered around a famous statue overlooking the city.",
+        "tags": [
+            "landmark",
+            "tourism",
+            "culture"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_019",
+        "imageUrl": "assets/images/time-photos/photo_019.jpg",
+        "year": 2014,
+        "lat": -15.8267,
+        "lng": -47.9218,
+        "country": "Brazil",
+        "city": "Brasília",
+        "description": "Large modern stadium filled with spectators during a global sporting event.",
+        "tags": [
+            "sports",
+            "crowd",
+            "modern"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_020",
+        "imageUrl": "assets/images/time-photos/photo_020.jpg",
+        "year": 1999,
+        "lat": 35.3606,
+        "lng": 138.7274,
+        "country": "Japan",
+        "city": "Near Mount Fuji",
+        "description": "Snow-capped mountain rising above the surrounding landscape.",
+        "tags": [
+            "nature",
+            "landscape",
+            "iconic"
+        ],
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_021",
+        "imageUrl": "assets/images/time-photos/photo_021.jpg",
+        "year": 2006,
+        "lat": -75.2500,
+        "lng": -0.0714,
+        "country": "Antarctica",
+        "city": "Research Area",
+        "description": "Scientists working near a large ice formation in extreme conditions.",
+        "tags": [
+            "science",
+            "exploration",
+            "nature"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_022",
+        "imageUrl": "assets/images/time-photos/photo_022.jpg",
+        "year": 2013,
+        "lat": 64.9631,
+        "lng": -19.0208,
+        "country": "Iceland",
+        "city": "Rural Area",
+        "description": "Bright colored lights illuminating the night sky above open land.",
+        "tags": [
+            "nature",
+            "phenomenon",
+            "sky"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_023",
+        "imageUrl": "assets/images/time-photos/photo_023.jpg",
+        "year": 2023,
+        "lat": 30.3285,
+        "lng": 35.4444,
+        "country": "Jordan",
+        "city": "Petra",
+        "description": "Ancient stone structures carved directly into rock formations.",
+        "tags": [
+            "ancient",
+            "architecture",
+            "historic"
+        ],
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_024",
+        "imageUrl": "assets/images/time-photos/photo_024.jpg",
+        "year": 2018,
+        "lat": 23.4241,
+        "lng": 53.8478,
+        "country": "United Arab Emirates",
+        "city": "Desert Area",
+        "description": "Large-scale construction project emerging from a desert landscape.",
+        "tags": [
+            "construction",
+            "modern",
+            "development"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_025",
+        "imageUrl": "assets/images/time-photos/photo_025.jpg",
+        "year": 2009,
+        "lat": 64.2008,
+        "lng": -149.4937,
+        "country": "United States",
+        "city": "Alaska",
+        "description": "Vast natural area covered in snow with minimal human presence.",
+        "tags": [
+            "nature",
+            "remote",
+            "landscape"
+        ],
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_026",
+        "imageUrl": "assets/images/time-photos/photo_026.jpg",
+        "year": 2022,
+        "lat": 48.2082,
+        "lng": 16.3738,
+        "country": "Austria",
+        "city": "Vienna",
+        "description": "People gathered in a public space holding signs and banners.",
+        "tags": [
+            "protest",
+            "society",
             "modern"
         ],
         "difficulty": "hard",
