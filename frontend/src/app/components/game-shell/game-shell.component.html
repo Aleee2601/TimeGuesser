@@ -6,7 +6,8 @@
     <header class="game-header-simple">
       <div class="stat">Round: <strong>{{ state.round }} / {{ state.maxRounds }}</strong></div>
       <div class="stat">Score: <strong>{{ state.score }}</strong></div>
-      <div class="stat" *ngIf="state.gameMode === 'timed'">Time: <strong>00:45</strong></div>
+      <div class="stat" *ngIf="state.gameMode === 'timed'">Time: <strong
+          [style.color]="timeLeft < 10 ? '#ef4444' : 'inherit'">00:{{ timeLeft | number:'2.0-0' }}</strong></div>
     </header>
 
     <div class="photo-frame">
@@ -35,11 +36,8 @@
 
     <!-- Map Section (Top of Right Col) -->
     <div class="map-section">
-      <div class="map-placeholder-box">
-        <div class="map-icon">🗺️</div>
-        <p>Map Area</p>
-        <small>(Logic Pending)</small>
-      </div>
+      <app-map [interactive]="state.status === 'in-progress' && !state.lastResult" [targetLocation]="targetLocation"
+        [guessedLocation]="selectedLocation" (guess)="onMapGuess($event)"></app-map>
     </div>
 
     <!-- Controls Section (Bottom of Right Col) -->
@@ -58,14 +56,7 @@
         SUBMIT GUESS
       </button>
 
-      <div class="result-box" *ngIf="state.lastResult">
-        <h3>Round Result</h3>
-        <p>You guessed <strong>{{ state.lastResult.guessedYear }}</strong></p>
-        <p>Actual: <strong>{{ state.lastResult.actualYear }}</strong></p>
-        <div class="points">+{{ state.lastResult.pointsAwarded }} pts</div>
 
-        <button class="btn-next" (click)="onNextRound()">Next Round →</button>
-      </div>
     </div>
   </div>
 
@@ -75,6 +66,21 @@
       <p>Loading...</p>
     </div>
   </ng-template>
+
+  <!-- Round Result Overlay -->
+  <div class="result-overlay" *ngIf="state.lastResult">
+    <div class="result-card">
+      <h3>Round {{ state.round }} Complete</h3>
+      <div class="points">+{{ state.lastResult.pointsAwarded }} Points</div>
+
+      <div style="margin: 1rem 0; color: var(--text-muted);">
+        <p>Guessed: <strong>{{ state.lastResult.guessedYear }}</strong></p>
+        <p>Actual: <strong>{{ state.lastResult.actualYear }}</strong></p>
+      </div>
+
+      <button class="btn-next" (click)="onNextRound()">Next Round →</button>
+    </div>
+  </div>
 
   <!-- Game Over -->
   <div class="game-over-overlay" *ngIf="state.status === 'finished'">

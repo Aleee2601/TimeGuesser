@@ -3,7 +3,7 @@ import { ScoringConfig } from '../models/time-photo.model';
 
 export const DEFAULT_SCORING_CONFIG: ScoringConfig = {
   maxYearDifference: 100,
-  maxDistanceKm: 20000,
+  maxDistanceKm: 15000,
   yearPoints: 500,
   locationPoints: 500
 };
@@ -27,7 +27,24 @@ export class ScoringService {
     const cappedDistance = Math.min(nonNegativeDistance, this.config.maxDistanceKm);
     const remaining = this.config.maxDistanceKm - cappedDistance;
     const ratio = remaining / this.config.maxDistanceKm;
-    return Math.round(this.config.locationPoints * ratio);
+    // Quadratic decay to make it harder (punish larger distances more)
+    return Math.round(this.config.locationPoints * (ratio * ratio));
+  }
+
+  calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+    const R = 6371; // Earth's radius in km
+    const dLat = this.deg2rad(lat2 - lat1);
+    const dLon = this.deg2rad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return Math.round(R * c);
+  }
+
+  private deg2rad(deg: number): number {
+    return deg * (Math.PI / 180);
   }
 
   getTotalScore(yearGuess: number, yearReal: number, distanceKm: number): number {

@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --primary: #6366f1;
-  /* Indigo */
-  --primary-dark: #4338ca;
-  --accent: #f43f5e;
-  /* Rose */
-  --bg-dark: #0f172a;
+  --primary: #14b8a6;
+  /* Teal 500 */
+  --primary-dark: #0f766e;
+  /* Teal 700 */
+  --accent: #f97316;
+  /* Orange 500 */
+  --bg-dark: #f8fafc;
+  /* Slate 50 (Light) */
+  --bg-card: #ffffff;
+  /* White */
+  --text-main: #0f172a;
   /* Slate 900 */
-  --bg-card: #1e293b;
-  /* Slate 800 */
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
+  /* Slate 500 */
   --font-main: 'Outfit', sans-serif;
   --radius: 16px;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -62,18 +65,15 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 15px -3px rgb(99 102 241 / 0.4);
+  box-shadow: 0 10px 15px -3px rgb(20 184 166 / 0.4);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgb(99 102 241 / 0.5);
+  box-shadow: 0 20px 25px -5px rgb(20 184 166 / 0.5);
 }
 
 .title-gradient {
-  background: linear-gradient(to right, #818cf8, #f43f5e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }

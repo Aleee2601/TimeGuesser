@@ -97,8 +97,9 @@
 
 .progress-card {
   margin-top: 12px;
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 16px;
 }

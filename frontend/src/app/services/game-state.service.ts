@@ -10,6 +10,7 @@ import { StorageService } from './storage.service';
 })
 export class GameStateService {
   private readonly defaultMaxRounds = 5;
+  static readonly ROUND_DURATION = 60;
   private stateSubject = new BehaviorSubject<GameState>({
     status: 'idle',
     round: 0,
@@ -58,7 +59,7 @@ export class GameStateService {
     this.loadPhotoForRound(currentState.round + 1, currentState.maxRounds, currentState.gameMode);
   }
 
-  submitGuess(guessedYear: number): GuessSummary | undefined {
+  submitGuess(guessedYear: number, guessedLocation: { lat: number, lng: number } | null, isTimeout: boolean = false): GuessSummary | undefined {
     const currentState = this.stateSubject.value;
 
     if (!currentState.currentPhoto || currentState.status !== 'in-progress') {
@@ -66,22 +67,37 @@ export class GameStateService {
     }
 
     const yearDifference = Math.abs(guessedYear - currentState.currentPhoto.year);
+
+    // Calculate distance if location provided
+    let distanceKm = Number.POSITIVE_INFINITY;
+    if (guessedLocation) {
+      distanceKm = this.scoringService.calculateDistance(
+        guessedLocation.lat,
+        guessedLocation.lng,
+        currentState.currentPhoto.lat,
+        currentState.currentPhoto.lng
+      );
+    }
+
     const pointsAwarded = this.scoringService.getTotalScore(
       guessedYear,
       currentState.currentPhoto.year,
-      Number.POSITIVE_INFINITY // Location score will be added when distance is available
+      distanceKm
     );
+
+    // If timeout, force points to 0 but keep other stats for display
+    const finalPoints = isTimeout ? 0 : pointsAwarded;
 
     const result: GuessSummary = {
       guessedYear,
       actualYear: currentState.currentPhoto.year,
       yearDifference,
-      pointsAwarded
+      pointsAwarded: finalPoints
     };
 
     const updatedState: GameState = {
       ...currentState,
-      score: currentState.score + pointsAwarded,
+      score: currentState.score + finalPoints,
       lastResult: result
     };
 
