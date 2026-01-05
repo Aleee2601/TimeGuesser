@@ -38,7 +38,8 @@
     <!-- Map Section (Top of Right Col) -->
     <div class="map-section">
       <app-map [interactive]="state.status === 'in-progress' && !state.lastResult" [targetLocation]="targetLocation"
-        [guessedLocation]="selectedLocation" (guess)="onMapGuess($event)"></app-map>
+        [guessedLocation]="selectedLocation" [resetKey]="state.round"
+        (guess)="onMapGuess($event)"></app-map>
     </div>
 
     <!-- Controls Section (Bottom of Right Col) -->

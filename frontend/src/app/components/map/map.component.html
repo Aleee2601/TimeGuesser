@@ -1,1 +1,16 @@
-<div id="map" class="map-container"></div>
+<div class="map-wrapper">
+  <div class="map-search">
+    <input
+      type="text"
+      class="map-search-input"
+      placeholder="Search city or country"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="onSearch()"
+    />
+    <button class="map-search-button" type="button" (click)="onSearch()" [disabled]="searching">
+      {{ searching ? 'Searching...' : 'Search' }}
+    </button>
+  </div>
+  <div class="map-search-error" *ngIf="searchError">{{ searchError }}</div>
+  <div id="map" class="map-container"></div>
+</div>

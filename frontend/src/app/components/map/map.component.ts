@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import * as maplibregl from 'maplibre-gl';
 
 @Component({
     selector: 'app-map',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, FormsModule],
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.css']
 })
@@ -13,6 +14,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     @Input() interactive = true;
     @Input() targetLocation: { lat: number; lng: number } | null = null;
     @Input() guessedLocation: { lat: number; lng: number } | null = null;
+    @Input() resetKey: number | string | null = null;
     @Output() guess = new EventEmitter<{ lat: number; lng: number }>();
 
     private map!: maplibregl.Map;
@@ -20,6 +22,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     private targetMarker: maplibregl.Marker | null = null;
     private lineLayerId = 'result-line';
     private lineSourceId = 'result-line-source';
+    searchQuery = '';
+    searchError = '';
+    searching = false;
 
     constructor() { }
 
@@ -30,6 +35,12 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['targetLocation'] || changes['guessedLocation']) {
             this.updateResultView();
+        }
+
+        if (changes['resetKey']) {
+            this.searchQuery = '';
+            this.searchError = '';
+            this.searching = false;
         }
 
         if (this.map && this.interactive && !this.targetLocation && !this.guessedLocation) {
@@ -77,6 +88,43 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.map.on('load', () => {
             this.updateResultView();
         });
+    }
+
+    async onSearch(): Promise<void> {
+        const query = this.searchQuery.trim();
+        if (!query || !this.map) {
+            this.searchError = query ? '' : 'Please enter a city or country.';
+            return;
+        }
+
+        this.searching = true;
+        this.searchError = '';
+
+        try {
+            const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
+            const response = await fetch(url);
+            const results = await response.json();
+
+            if (!Array.isArray(results) || results.length === 0) {
+                this.searchError = 'No results found.';
+                return;
+            }
+
+            const match = results[0];
+            const lat = parseFloat(match.lat);
+            const lng = parseFloat(match.lon);
+
+            if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+                this.searchError = 'Invalid location result.';
+                return;
+            }
+
+            this.map.flyTo({ center: [lng, lat], zoom: 8 });
+        } catch {
+            this.searchError = 'Search failed. Please try again.';
+        } finally {
+            this.searching = false;
+        }
     }
 
     private placeGuessMarker(lat: number, lng: number): void {
