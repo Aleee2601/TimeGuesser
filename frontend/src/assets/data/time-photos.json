@@ -620,5 +620,113 @@
         "description": "A historic building damaged by a major unexpected incident.",
         "difficulty": "hard",
         "source": "Public Domain"
+    },
+    {
+        "id": "photo_042",
+        "imageUrl": "assets/images/time-photos/photo_042.jpg",
+        "year": 2017,
+        "lat": 51.5007,
+        "lng": -0.1246,
+        "country": "United Kingdom",
+        "city": "London",
+        "description": "A historic clock tower that has become a symbol of an entire nation.",
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_043",
+        "imageUrl": "assets/images/time-photos/photo_043.jpg",
+        "year": 2016,
+        "lat": 43.0962,
+        "lng": -79.0377,
+        "country": "Canada",
+        "city": "Niagara Falls",
+        "description": "A powerful natural attraction drawing visitors with its scale and force.",
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_044",
+        "imageUrl": "assets/images/time-photos/photo_044.jpg",
+        "year": 2018,
+        "lat": 27.1751,
+        "lng": 78.0421,
+        "country": "India",
+        "city": "Agra",
+        "description": "A symmetrical monument built as a symbol of love and remembrance.",
+        "difficulty": "easy",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_045",
+        "imageUrl": "assets/images/time-photos/photo_045.jpg",
+        "year": 2016,
+        "lat": 9.0800,
+        "lng": -79.6800,
+        "country": "Panama",
+        "city": "Canal Zone",
+        "description": "A major engineering project that transformed global shipping routes.",
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_046",
+        "imageUrl": "assets/images/time-photos/photo_046.jpg",
+        "year": 2019,
+        "lat": 46.2330,
+        "lng": 6.0550,
+        "country": "Switzerland",
+        "city": "Geneva Area",
+        "description": "A scientific facility designed to explore the fundamental nature of matter.",
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_047",
+        "imageUrl": "assets/images/time-photos/photo_047.jpg",
+        "year": 2014,
+        "lat": 44.4275,
+        "lng": 26.0875,
+        "country": "Romania",
+        "city": "Bucharest",
+        "description": "One of the largest administrative buildings ever constructed.",
+        "difficulty": "medium",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_048",
+        "imageUrl": "assets/images/time-photos/photo_048.jpg",
+        "year": 2010,
+        "lat": 45.0000,
+        "lng": 60.0000,
+        "country": "Kazakhstan",
+        "city": "Aral Sea Region",
+        "description": "A dramatic example of environmental change caused by human activity.",
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_049",
+        "imageUrl": "assets/images/time-photos/photo_049.jpg",
+        "year": 2021,
+        "lat": 30.8200,
+        "lng": 32.3200,
+        "country": "Egypt",
+        "city": "Suez Canal",
+        "description": "A single vessel unexpectedly disrupted one of the world’s most important trade routes.",
+        "difficulty": "hard",
+        "source": "Public Domain"
+    },
+    {
+        "id": "photo_050",
+        "imageUrl": "assets/images/time-photos/photo_050.jpg",
+        "year": 2021,
+        "lat": 31.0000,
+        "lng": -111.0000,
+        "country": "United States",
+        "city": "Border Area",
+        "description": "A long man-made barrier dividing vast open land.",
+        "difficulty": "hard",
+        "source": "Public Domain"
     }
 ]
