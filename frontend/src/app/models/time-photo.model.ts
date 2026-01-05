@@ -12,7 +12,7 @@ export interface TimePhoto {
     description?: string;
     tags?: string[];        // Pentru categorii: "war", "culture", "politics", etc.
     difficulty?: 'easy' | 'medium' | 'hard';  // Nivel dificultate
-    source?: string;        // Sursa imaginii (credit)
+    source?: string;
 }
 
 // Interface for user's guess

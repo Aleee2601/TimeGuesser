@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { GameState } from '../../models/game-state.model';
 import { GameStateService } from '../../services/game-state.service';
@@ -23,12 +23,14 @@ export class GameShellComponent implements OnInit, OnDestroy {
   dataSource: 'primary' | 'fallback' = 'primary';
   hintVisible = false;
   private destroy$ = new Subject<void>();
+  exitConfirmVisible = false;
 
   constructor(
     private gameStateService: GameStateService,
     private datasetService: DatasetService,
     private scoringService: ScoringService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   selectedLocation: { lat: number; lng: number } | null = null;
@@ -109,6 +111,19 @@ export class GameShellComponent implements OnInit, OnDestroy {
 
   toggleHint(): void {
     this.hintVisible = !this.hintVisible;
+  }
+
+  openExitConfirm(): void {
+    this.exitConfirmVisible = true;
+  }
+
+  cancelExitConfirm(): void {
+    this.exitConfirmVisible = false;
+  }
+
+  confirmExit(): void {
+    this.exitConfirmVisible = false;
+    this.router.navigate(['/']);
   }
 
   onSubmitGuess(): void {

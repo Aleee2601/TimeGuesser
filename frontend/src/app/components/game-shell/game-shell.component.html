@@ -1,4 +1,5 @@
 <div class="game-container-split" *ngIf="state$ | async as state">
+  <button class="exit-button" type="button" (click)="openExitConfirm()">Exit</button>
 
   <!-- LEFT COLUMN: PHOTO -->
   <div class="split-col photo-col">
@@ -89,6 +90,17 @@
       <div class="final-score">{{ state.score }}</div>
       <button class="btn-submit" (click)="onRestart(state)">Play Again</button>
       <a routerLink="/" class="btn-link">Back to Menu</a>
+    </div>
+  </div>
+
+  <!-- Exit Confirm Overlay -->
+  <div class="exit-overlay" *ngIf="exitConfirmVisible">
+    <div class="exit-card">
+      <p>Are you sure you want to exit?</p>
+      <div class="exit-actions">
+        <button class="btn-exit btn-exit-yes" type="button" (click)="confirmExit()">Yes</button>
+        <button class="btn-exit btn-exit-cancel" type="button" (click)="cancelExitConfirm()">Cancel</button>
+      </div>
     </div>
   </div>
 </div>
