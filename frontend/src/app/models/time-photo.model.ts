@@ -10,8 +10,8 @@ export interface TimePhoto {
     city?: string;
 
     description?: string;
-    tags?: string[];        // Pentru categorii: "war", "culture", "politics", etc.
-    difficulty?: 'easy' | 'medium' | 'hard';  // Nivel dificultate
+    tags?: string[];
+    difficulty?: 'easy' | 'medium' | 'hard';
     source?: string;
 }
 
@@ -34,8 +34,8 @@ export interface RoundResult {
 
 // Interface for scoring configuration
 export interface ScoringConfig {
-    maxYearDifference: number;   // Ex: 100 ani
-    maxDistanceKm: number;       // Ex: 20000 km
-    yearPoints: number;          // Ex: 500 puncte
-    locationPoints: number;      // Ex: 500 puncte
+    maxYearDifference: number;
+    maxDistanceKm: number;
+    yearPoints: number;
+    locationPoints: number;
 }

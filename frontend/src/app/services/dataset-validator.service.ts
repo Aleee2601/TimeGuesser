@@ -21,9 +21,7 @@ export class DatasetValidatorService {
 
     constructor(private http: HttpClient) { }
 
-    /**
-     * Validează dataset-ul time-photos.json
-     */
+
     validateDataset(dataUrl: string = 'assets/data/time-photos.json'): Observable<DatasetValidationResult> {
         return this.http.get<TimePhoto[]>(dataUrl).pipe(
             map(photos => this.performValidation(photos))
@@ -61,7 +59,7 @@ export class DatasetValidatorService {
         photos.forEach((photo, index) => {
             const photoRef = `Photo ${index + 1} (${photo.id || 'no-id'})`;
 
-            // Verifică ID-uri unice
+            //  ID-uri unice
             if (!photo.id) {
                 result.errors.push(`${photoRef}: Missing ID`);
                 result.valid = false;
@@ -72,7 +70,7 @@ export class DatasetValidatorService {
                 usedIds.add(photo.id);
             }
 
-            // Verifică câmpuri obligatorii
+            //  campuri obligatorii
             if (!photo.imageUrl) {
                 result.errors.push(`${photoRef}: Missing imageUrl`);
                 result.valid = false;
@@ -89,7 +87,7 @@ export class DatasetValidatorService {
                 result.stats.yearRange.max = Math.max(result.stats.yearRange.max, photo.year);
             }
 
-            // Verifică coordonate
+            //  coordonate
             if (typeof photo.lat !== 'number' || photo.lat < -90 || photo.lat > 90) {
                 result.errors.push(`${photoRef}: Invalid latitude (${photo.lat})`);
                 result.valid = false;
@@ -105,7 +103,7 @@ export class DatasetValidatorService {
                 result.valid = false;
             }
 
-            // Verifică difficulty
+            //  difficulty
             if (photo.difficulty) {
                 if (!['easy', 'medium', 'hard'].includes(photo.difficulty)) {
                     result.warnings.push(`${photoRef}: Invalid difficulty '${photo.difficulty}'`);
@@ -116,7 +114,7 @@ export class DatasetValidatorService {
                 result.warnings.push(`${photoRef}: Missing difficulty`);
             }
 
-            // Avertismente pentru câmpuri opționale utile
+            // Avertismente pentru campuri optionale utile
             if (!photo.description) {
                 result.warnings.push(`${photoRef}: Missing description (useful for hints)`);
             }
@@ -126,7 +124,7 @@ export class DatasetValidatorService {
             }
         });
 
-        // Verifică distribuție echilibrată
+        // Verifica distributia echilibrata
         const { easy, medium, hard } = result.stats.byDifficulty;
         if (easy === 0 || medium === 0 || hard === 0) {
             result.warnings.push('Unbalanced difficulty distribution');
@@ -135,9 +133,7 @@ export class DatasetValidatorService {
         return result;
     }
 
-    /**
-     * Log-uiește rezultatul validării în consolă
-     */
+
     logValidationResult(result: DatasetValidationResult): void {
         console.group('📊 Dataset Validation Results');
 
